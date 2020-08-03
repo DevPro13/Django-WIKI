@@ -1,0 +1,26 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+{% block body %}
+	{% if content %}
+
+	    <div >
+	    	{{ content|safe }}
+	    	
+	    </div>
+	  <div>
+	  	<a href="{% url 'edit' title %}" style="display:block;background:black;color:white;font-weight:bold;margin-top:20px;padding-left:12px;margin-left:3px;width:100px;height:25px;">Edit Page</a>
+	  </div>
+		
+	{% else %}
+	 	
+	    <div style="margin-top:15%;color:red;">
+	    	<h3 align="center">{{ message }}</h3>
+	    	
+	    </div>
+	 	
+	{% endif %}
+ {% endblock %}
+

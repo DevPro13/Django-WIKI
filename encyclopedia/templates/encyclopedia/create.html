@@ -1,0 +1,25 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+	<div style="padding-top:20px;padding-left:40px;color:red;font-weight:bold;">
+		{% if message %}
+			<h4>{{ message }}</h4>
+		{% elif error %}
+			<h4>{{ error }}</h4>
+		{% endif %}
+	</div>
+	<div class="form-group">
+	<form action="{% url 'add' %}" method="POST">
+		{% csrf_token %}
+		{{ form.title }}
+		<br>
+		{{ form.content }}
+		<input type="submit" value="Create page">
+	</form>
+	</div>
+   
+{% endblock %}
